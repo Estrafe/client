@@ -1,0 +1,226 @@
+{
+  "outbound": [
+    {
+      "id": 1,
+      "title": "Express 101",
+      "departureTime": "6:00 AM",
+      "arrivalTime": "8:00 AM",
+      "price": 45,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Standard", "Upper"]
+    },
+    {
+      "id": 2,
+      "title": "Regional 102",
+      "departureTime": "6:30 AM",
+      "arrivalTime": "9:00 AM",
+      "price": 40,
+      "accessible": false,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Standard"]
+    },
+    {
+      "id": 3,
+      "title": "Intercity 103",
+      "departureTime": "7:00 AM",
+      "arrivalTime": "9:30 AM",
+      "price": 50,
+      "accessible": true,
+      "co2Compliant": false,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 4,
+      "title": "Express 104",
+      "departureTime": "7:45 AM",
+      "arrivalTime": "10:00 AM",
+      "price": 55,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Business", "Upper"]
+    },
+    {
+      "id": 5,
+      "title": "Regional 105",
+      "departureTime": "8:15 AM",
+      "arrivalTime": "10:30 AM",
+      "price": 48,
+      "accessible": false,
+      "co2Compliant": false,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Standard"]
+    },
+    {
+      "id": 6,
+      "title": "Intercity 106",
+      "departureTime": "9:00 AM",
+      "arrivalTime": "11:30 AM",
+      "price": 60,
+      "accessible": true,
+      "co2Compliant": false,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Business"]
+    },
+    {
+      "id": 7,
+      "title": "Express 107",
+      "departureTime": "9:45 AM",
+      "arrivalTime": "12:00 PM",
+      "price": 50,
+      "accessible": false,
+      "co2Compliant": true,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Standard", "Upper"]
+    },
+    {
+      "id": 8,
+      "title": "Regional 108",
+      "departureTime": "10:15 AM",
+      "arrivalTime": "12:45 PM",
+      "price": 47,
+      "accessible": true,
+      "co2Compliant": false,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 9,
+      "title": "Intercity 109",
+      "departureTime": "11:00 AM",
+      "arrivalTime": "1:30 PM",
+      "price": 65,
+      "accessible": false,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 10,
+      "title": "Express 110",
+      "departureTime": "11:30 AM",
+      "arrivalTime": "2:00 PM",
+      "price": 55,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Standard", "Business"]
+    }
+  ],
+  "return": [
+    {
+      "id": 11,
+      "title": "Return Express 201",
+      "departureTime": "2:00 PM",
+      "arrivalTime": "4:00 PM",
+      "price": 45,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Standard"]
+    },
+    {
+      "id": 12,
+      "title": "Return Regional 202",
+      "departureTime": "2:30 PM",
+      "arrivalTime": "5:00 PM",
+      "price": 40,
+      "accessible": false,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 13,
+      "title": "Return Intercity 203",
+      "departureTime": "3:00 PM",
+      "arrivalTime": "5:30 PM",
+      "price": 50,
+      "accessible": true,
+      "co2Compliant": false,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 14,
+      "title": "Return Express 204",
+      "departureTime": "3:45 PM",
+      "arrivalTime": "6:00 PM",
+      "price": 55,
+      "accessible": false,
+      "co2Compliant": true,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Business"]
+    },
+    {
+      "id": 15,
+      "title": "Return Regional 205",
+      "departureTime": "4:15 PM",
+      "arrivalTime": "6:30 PM",
+      "price": 48,
+      "accessible": true,
+      "co2Compliant": false,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Standard"]
+    },
+    {
+      "id": 16,
+      "title": "Return Intercity 206",
+      "departureTime": "5:00 PM",
+      "arrivalTime": "7:30 PM",
+      "price": 60,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Standard", "Business"]
+    },
+    {
+      "id": 17,
+      "title": "Return Express 207",
+      "departureTime": "5:45 PM",
+      "arrivalTime": "8:00 PM",
+      "price": 50,
+      "accessible": false,
+      "co2Compliant": false,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 18,
+      "title": "Return Regional 208",
+      "departureTime": "6:15 PM",
+      "arrivalTime": "8:45 PM",
+      "price": 47,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": true,
+      "seatClasses": ["Standard", "Upper"]
+    },
+    {
+      "id": 19,
+      "title": "Return Intercity 209",
+      "departureTime": "7:00 PM",
+      "arrivalTime": "9:30 PM",
+      "price": 65,
+      "accessible": false,
+      "co2Compliant": false,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Upper"]
+    },
+    {
+      "id": 20,
+      "title": "Return Express 210",
+      "departureTime": "7:30 PM",
+      "arrivalTime": "10:00 PM",
+      "price": 55,
+      "accessible": true,
+      "co2Compliant": true,
+      "animalsEnabledCoach": false,
+      "seatClasses": ["Upper"]
+    }
+  ]
+}

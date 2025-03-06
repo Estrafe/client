@@ -1,101 +1,144 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import React from "react";
+import Header from "@/components/Header";
+import SearchTicketMenu from "@/components/SearchTicketMenu";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import {
+    Globe,
+    Shield,
+    TrendingUp,
+    ArrowRight,
+} from "lucide-react";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+export default function MainPage() {
+    return (
+        <div className="min-h-screen flex flex-col bg-slate-50 bg-[radial-gradient(ellipse_at_top_left,_rgba(185,28,29,0.08)_0%,_transparent_60%),radial-gradient(ellipse_at_bottom_right,_rgba(216,44,44,0.05)_0%,_transparent_50%)]">
+            <Header />
+
+            {/* Search Section */}
+            <section>
+                <SearchTicketMenu />
+            </section>
+
+            {/* Why Book With Us Section */}
+            <section className="py-12">
+                <div className="max-w-7xl mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">
+                        Why Book with Estrafe?
+                    </h2>
+                    <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+                        Enjoy modern, reliable, and comfortable travel with our extensive network,
+                        exceptional service, and competitive fares.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
+                            <Globe className="h-12 w-12 text-[#b91c1d] mb-3" />
+                            <h3 className="text-xl font-semibold text-gray-800">Global Reach</h3>
+                            <p className="text-sm text-gray-600">
+                                Connect with top cities and hidden gems across Switzerland.
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
+                            <Shield className="h-12 w-12 text-[#b91c1d] mb-3" />
+                            <h3 className="text-xl font-semibold text-gray-800">Safety First</h3>
+                            <p className="text-sm text-gray-600">
+                                Travel securely with our modern, well-maintained fleet.
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
+                            <TrendingUp className="h-12 w-12 text-[#b91c1d] mb-3" />
+                            <h3 className="text-xl font-semibold text-gray-800">Great Value</h3>
+                            <p className="text-sm text-gray-600">
+                                Enjoy competitive prices with no hidden fees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Featured Routes Section */}
+            <section className="py-12">
+                <div className="max-w-7xl mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">
+                        Popular Routes
+                    </h2>
+                    <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+                        Check out some of our most popular routes and discover the beauty of Switzerland.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Example Route Card */}
+                        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md transition cursor-pointer bg-white">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Zurich to Bern</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                                Enjoy scenic views on this classic Swiss route connecting the heart of finance with the historic capital.
+                            </p>
+                            <div className="flex items-center justify-end">
+                                <Link href="/routes">
+                                    <Button variant="ghost" className="text-[#b91c1d] flex items-center gap-1">
+                                        Learn More <ArrowRight className="h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                        {/* Duplicate cards */}
+                        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md transition cursor-pointer bg-white">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Geneva to Zurich</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                                Travel between international hubs with comfort and style on our efficient express service.
+                            </p>
+                            <div className="flex items-center justify-end">
+                                <Link href="/routes">
+                                    <Button variant="ghost" className="text-[#b91c1d] flex items-center gap-1">
+                                        Learn More <ArrowRight className="h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md transition cursor-pointer bg-white">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Basel to Lugano</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                                Discover the beauty of Switzerland on this long journey from the cultural hub of Basel to the Mediterranean flair of Lugano.
+                            </p>
+                            <div className="flex items-center justify-end">
+                                <Link href="/routes">
+                                    <Button variant="ghost" className="text-[#b91c1d] flex items-center gap-1">
+                                        Learn More <ArrowRight className="h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Loyalty Program Section */}
+            <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                            Join Our Loyalty Program
+                        </h2>
+                        <p className="text-gray-600 mb-6">
+                            Earn exclusive rewards every time you travel with Estrafe. Our loyalty program is designed for frequent travelers, offering special discounts, priority booking, and personalized travel offers.
+                        </p>
+                        <Link
+                            href="/loyalty"
+                            className="inline-block bg-[#b91c1d] text-white px-6 py-3 rounded-lg hover:bg-[#a1191a] transition"
+                        >
+                            Learn More &rarr;
+                        </Link>
+                    </div>
+                    <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                        <img
+                            src="/loyalty_card.svg"
+                            alt="Loyalty Program Card"
+                            className="w-[400px] transform rotate-6"
+                        />
+                    </div>
+                </div>
+            </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
