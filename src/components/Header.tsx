@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import * as React from "react";
 import Link from "next/link";
@@ -13,30 +13,8 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-    ChevronDownIcon,
-    Cloud,
-    CreditCard, Github, Globe,
-    Keyboard, LifeBuoy, LogOut,
-    Mail,
-    MessageSquare, Plus,
-    PlusCircle,
-    Settings,
-    User,
-    UserCircle2,
-    UserPlus,
-    Users
-} from "lucide-react";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem,
-    DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {Button} from "@/components/ui/button";
+import UserDropdown from "@/components/UserDropdown";
 
 
 /** A small array of data for the dropdown menu. Customize as needed. */
@@ -54,8 +32,8 @@ const navComponents = [
             "Cross-border journeys linking Europe’s major cities efficiently.",
     },
     {
-        title: "Estrafe 2030",
-        href: "/estrafe-2030",
+        title: "Spain Network",
+        href: "/international/spain",
         description:
             "Our roadmap for sustainability, modern tech, and better experiences.",
     },
@@ -208,119 +186,15 @@ export default function Header() {
                 />
             </Link>
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-5 items-center">
                 <Link href="/support">
                     <Button variant="ghost" className="bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent hover:text-white transition-colors duration-150 text-base md:text-lg font-bold"
                     >
                         Support Center
                     </Button>
                 </Link>
-                {/*Language Dropdown*/}
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="gap-0">
-                            <Globe className=""/>
-                            <ChevronDownIcon className=""/>
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>Language</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
-                            <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="german">Deutsch</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="french">Français</DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                    </DropdownMenuContent>
-                </DropdownMenu>
                 {/*User Dropdown*/}
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="rounded-2xl">
-                            <UserCircle2 className="" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                <User />
-                                <span>Profile</span>
-                                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <CreditCard />
-                                <span>Billing</span>
-                                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Settings />
-                                <span>Settings</span>
-                                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Keyboard />
-                                <span>Keyboard shortcuts</span>
-                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                        </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                <Users />
-                                <span>Team</span>
-                            </DropdownMenuItem>
-                            <DropdownMenuSub>
-                                <DropdownMenuSubTrigger>
-                                    <UserPlus />
-                                    <span>Invite users</span>
-                                </DropdownMenuSubTrigger>
-                                <DropdownMenuPortal>
-                                    <DropdownMenuSubContent>
-                                        <DropdownMenuItem>
-                                            <Mail />
-                                            <span>Email</span>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem>
-                                            <MessageSquare />
-                                            <span>Message</span>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem>
-                                            <PlusCircle />
-                                            <span>More...</span>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuSubContent>
-                                </DropdownMenuPortal>
-                            </DropdownMenuSub>
-                            <DropdownMenuItem>
-                                <Plus />
-                                <span>New Team</span>
-                                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                        </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            <Github />
-                            <span>GitHub</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <LifeBuoy />
-                            <span>Support</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem disabled>
-                            <Cloud />
-                            <span>API</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            <LogOut />
-                            <span>Log out</span>
-                            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                <UserDropdown />
             </div>
         </header>
     );

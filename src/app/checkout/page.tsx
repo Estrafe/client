@@ -8,6 +8,9 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {HeartCrack, Lock, MoveLeft} from "lucide-react";
+import ExpiryDateInput from "@/components/ExpiryDateInput";
+import CardNumberInput from "@/components/CardNumberInput";
+import formatTime from "@/app/tickets/page";
 
 // Define the TrainTicket type
 export interface TrainTicket {
@@ -15,6 +18,8 @@ export interface TrainTicket {
     title: string;
     departureTime: string;
     arrivalTime: string;
+    departureStation: string;
+    arrivalStation: string;
     price: number;
     seatClass?: string;
     accessible?: boolean;
@@ -76,6 +81,9 @@ export default function CheckoutPage() {
     const [clientEmail, setClientEmail] = React.useState("");
     const [clientPhone, setClientPhone] = React.useState("");
     const [clientAddress, setClientAddress] = React.useState("");
+    const [clientExpiryDate, setClientExpiryDate] = React.useState("");
+    const [clientCardNumber, setClientCardNumber] = React.useState("");
+    const [isValid, setIsValid] = React.useState(true);
 
     return (
         <div className="bg-slate-50 min-h-screen relative">
@@ -101,6 +109,8 @@ export default function CheckoutPage() {
                                     title={selectedOutbound.title}
                                     departureTime={selectedOutbound.departureTime}
                                     arrivalTime={selectedOutbound.arrivalTime}
+                                    departureStation={selectedOutbound.departureStation}
+                                    arrivalStation={selectedOutbound.arrivalStation}
                                     price={selectedOutbound.price}
                                     seatClass={selectedOutbound.seatClass}
                                     accessible={selectedOutbound.accessible}
@@ -114,6 +124,8 @@ export default function CheckoutPage() {
                                     title={selectedReturn.title}
                                     departureTime={selectedReturn.departureTime}
                                     arrivalTime={selectedReturn.arrivalTime}
+                                    departureStation={selectedReturn.departureStation}
+                                    arrivalStation={selectedReturn.arrivalStation}
                                     price={selectedReturn.price}
                                     seatClass={selectedReturn.seatClass}
                                     accessible={selectedReturn.accessible}
@@ -166,7 +178,7 @@ export default function CheckoutPage() {
                                             Full Name
                                         </label>
                                         <Input
-                                            placeholder="John Doe"
+                                            placeholder="Miguel Oreiro"
                                             className="w-full text-sm"
                                             value={clientName}
                                             onChange={(e) => setClientName(e.target.value)}
@@ -178,9 +190,10 @@ export default function CheckoutPage() {
                                             Email Address
                                         </label>
                                         <Input
-                                            placeholder="john.doe@example.com"
+                                            placeholder="miguel.oreiro@estrafe.com"
                                             className="w-full text-sm"
                                             value={clientEmail}
+                                            type="email"
                                             onChange={(e) => setClientEmail(e.target.value)}
                                             required
                                         />
@@ -201,7 +214,7 @@ export default function CheckoutPage() {
                                             Address
                                         </label>
                                         <Input
-                                            placeholder="123 Main St, City, Country"
+                                            placeholder="Calle Del Pez, 12, 28015, Madrid, España"
                                             className="w-full text-sm"
                                             value={clientAddress}
                                             onChange={(e) => setClientAddress(e.target.value)}
@@ -228,20 +241,20 @@ export default function CheckoutPage() {
                                         <label className="block text-sm font-medium text-gray-700 mb-1">
                                             Card Number
                                         </label>
-                                        <Input placeholder="1234 5678 9012 3456" className="w-full text-sm" />
+                                        <CardNumberInput value={clientCardNumber} onChange={setClientCardNumber} />
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                                 Expiry Date
                                             </label>
-                                            <Input placeholder="MM/YY" className="w-full text-sm" />
+                                            <ExpiryDateInput value={clientExpiryDate} onChange={setClientExpiryDate} setIsValid={setIsValid} />
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                                 CVV
                                             </label>
-                                            <Input placeholder="123" className="w-full text-sm" />
+                                            <Input placeholder="123" className="w-full text-sm" maxLength={3} />
                                         </div>
                                     </div>
                                 </div>
@@ -264,7 +277,7 @@ export default function CheckoutPage() {
 
                     {/* Back to Tickets Link */}
                     <div className="mt-10 text-center">
-                        <Link href="/tickets">
+                        <Link href="/">
                             <Button variant="ghost" className="text-violet-estrafe hover:bg-transparent hover:text-violet-estrafe hover:underline">
                                 <MoveLeft />
                                 Back to Tickets

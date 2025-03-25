@@ -11,10 +11,11 @@ import {
     TrendingUp,
     ArrowRight,
 } from "lucide-react";
+import HeroSectionModule from "@/components/modules/HeroSectionModule";
 
 export default function MainPage() {
     return (
-        <div className="min-h-screen flex flex-col bg-slate-50 bg-[radial-gradient(ellipse_at_top_left,_rgba(185,28,29,0.08)_0%,_transparent_60%),radial-gradient(ellipse_at_bottom_right,_rgba(216,44,44,0.05)_0%,_transparent_50%)]">
+        <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-800 bg-[radial-gradient(ellipse_at_top_left,_rgba(185,28,29,0.08)_0%,_transparent_60%),radial-gradient(ellipse_at_bottom_right,_rgba(216,44,44,0.05)_0%,_transparent_50%)]">
             <Header />
 
             {/* Search Section */}
@@ -22,41 +23,32 @@ export default function MainPage() {
                 <SearchTicketMenu />
             </section>
 
-            {/* Why Book With Us Section */}
-            <section className="py-12">
-                <div className="max-w-7xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">
-                        Why Book with Estrafe?
-                    </h2>
-                    <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
-                        Enjoy modern, reliable, and comfortable travel with our extensive network,
-                        exceptional service, and competitive fares.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
-                            <Globe className="h-12 w-12 text-[#b91c1d] mb-3" />
-                            <h3 className="text-xl font-semibold text-gray-800">Global Reach</h3>
-                            <p className="text-sm text-gray-600">
-                                Connect with top cities and hidden gems across Switzerland.
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
-                            <Shield className="h-12 w-12 text-[#b91c1d] mb-3" />
-                            <h3 className="text-xl font-semibold text-gray-800">Safety First</h3>
-                            <p className="text-sm text-gray-600">
-                                Travel securely with our modern, well-maintained fleet.
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm bg-white">
-                            <TrendingUp className="h-12 w-12 text-[#b91c1d] mb-3" />
-                            <h3 className="text-xl font-semibold text-gray-800">Great Value</h3>
-                            <p className="text-sm text-gray-600">
-                                Enjoy competitive prices with no hidden fees.
-                            </p>
-                        </div>
-                    </div>
+            {/*
+
+               <section className="flex flex-col items-center text-center py-12">
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                    Our New Spot: <span className="text-violet-estrafe">Ve Donde Quieras</span>
+                </h2>
+                <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+                    Featuring high-end actors that will capture you and take you to
+                    the reality of some train operator companies.
+                </p>
+
+
+                <div className="relative w-[90%] max-w-3xl mx-auto">
+                    <iframe
+                        className="w-full h-[350px] sm:h-[450px] border-4 border-violet-estrafe rounded-lg shadow-lg"
+                        src="https://www.youtube.com/embed/cFOrW_AW88Q?si=wPl4ZRdM249zYqJm"
+                        title="Ve Donde Quieras - Spot Estrafe"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
                 </div>
             </section>
+            */}
+
+            {/* Hero Section */}
+            <HeroSectionModule />
 
             {/* Featured Routes Section */}
             <section className="py-12">

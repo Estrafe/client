@@ -1,18 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import FAQ from "@/components/FAQ";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { Headset } from "lucide-react";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
 
 interface SupportTopic {
     title: string;
@@ -54,8 +48,6 @@ const topics: SupportTopic[] = [
 ];
 
 export default function SupportPage() {
-    const [selectedTopic, setSelectedTopic] = useState<SupportTopic | null>(null);
-
     return (
         <div className="bg-slate-50 min-h-screen">
             <Header />
@@ -69,40 +61,24 @@ export default function SupportPage() {
                     </p>
                 </div>
 
+                <div className="flex flex-row gap-3 py-4">
+                    <Input className="w-full bg-white" placeholder="Search a question..." />
+                    <Button className="bg-violet-estrafe hover:bg-violet-estrafe-hover w-1/6">Write a new question</Button>
+                </div>
                 {/* Popular Topics Section */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-gray-800 mb-4">Popular Topics</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                         {topics.map((topic) => (
-                            <Dialog key={topic.title}>
-                                <DialogTrigger asChild>
-                                    <div
-                                        className="bg-white rounded-lg shadow p-6 hover:shadow-md transition cursor-pointer"
-                                        onClick={() => setSelectedTopic(topic)}
-                                    >
-                                        <h3 className="text-xl font-semibold mb-2">{topic.title}</h3>
-                                        <p className="text-gray-600">{topic.description}</p>
-                                        <span className="mt-4 inline-block text-violet-estrafe hover:underline">
-                      Learn More &rarr;
-                    </span>
-                                    </div>
-                                </DialogTrigger>
-
-                                <DialogContent>
-                                    <DialogHeader>
-                                        <DialogTitle>{selectedTopic?.title}</DialogTitle>
-                                        <DialogDescription>{selectedTopic?.description}</DialogDescription>
-                                    </DialogHeader>
-                                    <div className="mt-4">
-                                        <Link
-                                            href={selectedTopic?.link ?? "#"}
-                                            className="inline-block bg-violet-estrafe text-white px-6 py-3 rounded-lg hover:bg-violet-estrafe-hover transition"
-                                        >
-                                            Visit Page
-                                        </Link>
-                                    </div>
-                                </DialogContent>
-                            </Dialog>
+                            <div key={topic.title}
+                                 className="bg-white rounded-lg shadow p-6 hover:shadow-md transition cursor-pointer"
+                            >
+                                <h3 className="text-xl font-semibold mb-2">{topic.title}</h3>
+                                <p className="text-gray-600">{topic.description}</p>
+                                <Link href={"/support/" + topic.title} className="mt-4 inline-block text-violet-estrafe hover:underline">
+                                    Learn More &rarr;
+                                </Link>
+                            </div>
                         ))}
                     </div>
                 </div>

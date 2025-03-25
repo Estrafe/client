@@ -6,10 +6,12 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DatePicker } from "@/components/DatePicker";
 import { cn } from "@/lib/utils";
-import {Calendar, Users, TrainFront, CircleAlert} from "lucide-react";
+import {Calendar, Users, TrainFront, CircleAlert, AlertCircle} from "lucide-react";
 import StationAutocomplete from "@/components/StationAutocomplete";
 import { Station } from "@/app/dashboard/model";
 import { useRouter } from "next/navigation";
+import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
+import {toast, Toaster} from "sonner";
 
 export default function SearchTicketMenu() {
     const router = useRouter();
@@ -43,13 +45,20 @@ export default function SearchTicketMenu() {
 
     const handleSearch = () => {
         // Validate required fields
-        if (!departureStation || !arrivalStation || !departureDate || (tripType === "round-trip" && !returnDate)) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-        // Prevent search if the departure and arrival stations are the same.
-        if (departureStation === arrivalStation) {
-            alert("Departure and arrival stations cannot be the same.");
+        if (
+            !departureStation ||
+            !arrivalStation ||
+            !departureDate ||
+            (tripType === "round-trip" && !returnDate)
+        ) {
+            toast("Incomplete Travel Details", {
+                description:
+                    "We can’t search for tickets until all fields are complete.",
+                action: {
+                    label: "Close",
+                    onClick: () => console.log("Close clicked"),
+                },
+            });
             return;
         }
 
@@ -80,14 +89,14 @@ export default function SearchTicketMenu() {
                         className="flex space-x-8"
                     >
                         <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="one-way" id="one-way" />
-                            <Label htmlFor="one-way" className="cursor-pointer text-gray-800 font-medium text-sm">
+                            <RadioGroupItem value="one-way" id="one-way" className="dark:text-white dark:bg-white dark:border-gray-300" />
+                            <Label htmlFor="one-way" className="cursor-pointer text-gray-800 dark:text-gray-100 font-medium text-sm">
                                 One-Way
                             </Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="round-trip" id="round-trip" />
-                            <Label htmlFor="round-trip" className="cursor-pointer text-gray-800 font-medium text-sm">
+                            <RadioGroupItem value="round-trip" id="round-trip" className="dark:text-white dark:bg-white dark:border-gray-300" />
+                            <Label htmlFor="round-trip" className="cursor-pointer text-gray-800 dark:text-gray-100 font-medium text-sm">
                                 Round-Trip
                             </Label>
                         </div>
@@ -116,9 +125,9 @@ export default function SearchTicketMenu() {
                 </div>
                 {/* Error message if stations are the same */}
                 {isSameStation && (
-                    <span className="flex flex-row justify-center items-center gap-3 mb-5">
-                        <CircleAlert className="h-4 w-4 text-red-500"/>
-                        <p className="text-xs text-red-500">
+                    <span className="flex flex-row justify-center items-center gap-3 mb-2">
+                        <CircleAlert className="h-4 w-4 text-red-500 dark:text-red-400"/>
+                        <p className="text-xs text-red-500 dark:text-red-400">
                             Departure and arrival stations cannot be the same.
                         </p>
                     </span>
@@ -127,14 +136,14 @@ export default function SearchTicketMenu() {
                 {/* Dates */}
                 <div className="grid grid-cols-2 gap-6 mb-6">
                     <div className="flex flex-col">
-                        <Label className="mb-1 text-sm font-medium text-gray-700 flex items-center gap-1">
-                            <Calendar className="h-4 w-4 text-violet-estrafe" /> Departure Date
+                        <Label className="mb-1 text-sm font-medium text-gray-700 dark:text-white flex items-center gap-1">
+                            <Calendar className="h-4 w-4 text-violet-estrafe dark:text-red-200" /> Departure Date
                         </Label>
                         <DatePicker selectedDate={departureDate} setSelectedDate={setDepartureDate} />
                     </div>
                     <div className={cn("flex flex-col", tripType === "one-way" ? "invisible" : "")}>
-                        <Label className="mb-1 text-sm font-medium text-gray-700 flex items-center gap-1">
-                            <Calendar className="h-4 w-4 text-violet-estrafe" /> Return Date
+                        <Label className="mb-1 text-sm font-medium text-gray-700 dark:text-white flex items-center gap-1">
+                            <Calendar className="h-4 w-4 text-violet-estrafe dark:text-red-200" /> Return Date
                         </Label>
                         <DatePicker selectedDate={returnDate} setSelectedDate={setReturnDate} minDate={departureDate} />
                     </div>
@@ -144,8 +153,8 @@ export default function SearchTicketMenu() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-center">
                     {/* Passenger Count */}
                     <div className="flex items-center">
-                        <Label className="mr-4 text-sm font-medium text-gray-700 flex items-center gap-1">
-                            <Users className="h-4 w-4 text-violet-estrafe" /> Passengers
+                        <Label className="mr-4 text-sm font-medium text-gray-700 dark:text-white flex items-center gap-1">
+                            <Users className="h-4 w-4 text-violet-estrafe dark:text-red-200" /> Passengers
                         </Label>
                         <Button
                             variant="outline"

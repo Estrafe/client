@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
-import {Armchair, Clock, DollarSign, Gem, TrainFront} from "lucide-react";
+import {Armchair, Clock, DollarSign, TrainFront, Gem} from "lucide-react";
 
 // Example services for filtering
 const SERVICE_OPTIONS = ["Express", "Regional", "Intercity"];
@@ -11,8 +11,8 @@ const SERVICE_OPTIONS = ["Express", "Regional", "Intercity"];
 // Example seat classes
 const SEAT_CLASSES = ["Standard", "Premium", "First Class"];
 
-const COACH_FEATURES = ["Accessible", "Pets allowed", "Sleeper"];
-
+// Example coach features
+const COACH_FEATURES = ["Accessible", "Pets Allowed", "Sleeper"];
 
 /** Type definition for the filter states & setters we expect from parent. */
 export interface FilterState {
@@ -24,6 +24,8 @@ export interface FilterState {
     setSelectedServices: React.Dispatch<React.SetStateAction<string[]>>;
     selectedSeatClasses: string[];
     setSelectedSeatClasses: React.Dispatch<React.SetStateAction<string[]>>;
+    selectedCoachFeatures: string[];
+    setSelectedCoachFeatures: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export default function FilterSidebar({
@@ -35,10 +37,9 @@ export default function FilterSidebar({
                                           setSelectedServices,
                                           selectedSeatClasses,
                                           setSelectedSeatClasses,
+                                          selectedCoachFeatures,
+                                          setSelectedCoachFeatures,
                                       }: FilterState) {
-
-    // We no longer have local state. Instead, we use the props from parent:
-    // departureTimeRange, priceRange, selectedServices, etc.
 
     function handleServiceChange(service: string, checked: boolean) {
         setSelectedServices((prev) =>
@@ -49,6 +50,12 @@ export default function FilterSidebar({
     function handleSeatClassChange(seatClass: string, checked: boolean) {
         setSelectedSeatClasses((prev) =>
             checked ? [...prev, seatClass] : prev.filter((s) => s !== seatClass)
+        );
+    }
+
+    function handleCoachFeatureChange(feature: string, checked: boolean) {
+        setSelectedCoachFeatures((prev) =>
+            checked ? [...prev, feature] : prev.filter((f) => f !== feature)
         );
     }
 
@@ -69,20 +76,15 @@ export default function FilterSidebar({
 
                 {/* Filter by Time */}
                 <div className="space-y-2">
-                    <label
-                        htmlFor="timeRange"
-                        className="flex gap-2 text-sm font-medium text-gray-700"
-                    >
-                        <Clock className="h-5 w-5"/>
+                    <label htmlFor="timeRange" className="flex gap-2 text-sm font-medium text-gray-700">
+                        <Clock className="h-5 w-5" />
                         Departure Time (hrs)
                     </label>
                     <Slider
                         id="timeRange"
                         max={24}
                         step={1}
-                        // We read the parent's state
                         value={departureTimeRange}
-                        // Update parent's state on change
                         onValueChange={(val) => setDepartureTimeRange([val[0], val[1]])}
                         className="mt-2"
                     />
@@ -93,78 +95,77 @@ export default function FilterSidebar({
 
                 {/* Filter by Price */}
                 <div className="space-y-2">
-                    <label
-                        htmlFor="priceRange"
-                        className="flex gap-2 text-sm font-medium text-gray-700"
-                    >
-                        <DollarSign className="h-5 w-5"/>
-                        Price Range
+                    <label htmlFor="priceRange" className="flex gap-2 text-sm font-medium text-gray-700">
+                        <DollarSign className="h-5 w-5" />
+                        Price Range (CHF)
                     </label>
                     <Slider
                         id="priceRange"
                         max={200}
                         step={5}
-                        // Controlled from parent
                         value={priceRange}
                         onValueChange={(val) => setPriceRange([val[0], val[1]])}
                         className="mt-2"
                     />
                     <p className="mt-1 text-xs text-gray-500">
-                        CHF{priceRange[0]} – CHF{priceRange[1]}
+                        CHF {priceRange[0]} – CHF {priceRange[1]}
                     </p>
                 </div>
 
-                {/* Filter by Service - two-column layout */}
+                {/* Filter by Train Service */}
                 <div className="space-y-2">
                     <span className="flex gap-2 text-sm font-medium text-gray-700">
                         <TrainFront className="h-5 w-5" />
                         Train Service
                     </span>
                     <div className="grid grid-cols-2 gap-1 mt-1">
-                        {SERVICE_OPTIONS.map((service) => {
-                            const isChecked = selectedServices.includes(service);
-                            return (
-                                <label
-                                    key={service}
-                                    className="inline-flex items-center space-x-2 text-sm text-gray-600"
-                                >
-                                    <Checkbox
-                                        checked={isChecked}
-                                        onCheckedChange={(checked) =>
-                                            handleServiceChange(service, Boolean(checked))
-                                        }
-                                    />
-                                    <span>{service}</span>
-                                </label>
-                            );
-                        })}
+                        {SERVICE_OPTIONS.map((service) => (
+                            <label key={service} className="inline-flex items-center space-x-2 text-sm text-gray-600">
+                                <Checkbox
+                                    checked={selectedServices.includes(service)}
+                                    onCheckedChange={(checked) => handleServiceChange(service, Boolean(checked))}
+                                />
+                                <span>{service}</span>
+                            </label>
+                        ))}
                     </div>
                 </div>
 
-                {/* Perks Filter */}
+                {/* Filter by Seat Class */}
+                <div className="space-y-2">
+                    <span className="flex gap-2 text-sm font-medium text-gray-700">
+                        <Armchair className="h-5 w-5" />
+                        Seat Class
+                    </span>
+                    <div className="grid grid-cols-2 gap-1 mt-1">
+                        {SEAT_CLASSES.map((seatClass) => (
+                            <label key={seatClass} className="inline-flex items-center space-x-2 text-sm text-gray-600">
+                                <Checkbox
+                                    checked={selectedSeatClasses.includes(seatClass)}
+                                    onCheckedChange={(checked) => handleSeatClassChange(seatClass, Boolean(checked))}
+                                />
+                                <span>{seatClass}</span>
+                            </label>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Filter by Coach Features */}
                 <div className="space-y-2">
                     <span className="flex gap-2 text-sm font-medium text-gray-700">
                         <Gem className="h-5 w-5" />
-                        Special Needs & Features
+                        Coach Features
                     </span>
                     <div className="grid grid-cols-2 gap-1 mt-1">
-                        {COACH_FEATURES.map((cls) => {
-                            const isChecked = selectedSeatClasses.includes(cls);
-                            return (
-                                <label
-                                    key={cls}
-                                    className="inline-flex items-center space-x-2 text-sm text-gray-600"
-                                >
-                                    <Checkbox
-                                        checked={isChecked}
-                                        onCheckedChange={(checked) =>
-                                            handleSeatClassChange(cls, Boolean(checked))
-                                        }
-                                    />
-                                    <span>{cls}</span>
-                                </label>
-                            );
-                        })}
+                        {COACH_FEATURES.map((feature) => (
+                            <label key={feature} className="inline-flex items-center space-x-2 text-sm text-gray-600">
+                                <Checkbox
+                                    checked={selectedCoachFeatures.includes(feature)}
+                                    onCheckedChange={(checked) => handleCoachFeatureChange(feature, Boolean(checked))}
+                                />
+                                <span>{feature}</span>
+                            </label>
+                        ))}
                     </div>
                 </div>
             </div>

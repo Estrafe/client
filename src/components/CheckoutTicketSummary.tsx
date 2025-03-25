@@ -8,12 +8,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {formatTime} from "@/app/tickets/page";
 
 export interface CheckoutTicketSummaryProps {
   label?: string;              // e.g. "Outbound" or "Return"
   title: string;
   departureTime: string;
   arrivalTime: string;
+  departureStation: string;
+  arrivalStation: string;
   price: number;
   seatClass?: string;
   accessible?: boolean;
@@ -30,21 +33,25 @@ export default function CheckoutTicketSummary({
   title,
   departureTime,
   arrivalTime,
+  departureStation,
+  arrivalStation,
   price,
   seatClass,
   accessible,
   co2Compliant,
   animalsEnabledCoach,
 }: CheckoutTicketSummaryProps) {
+  console.log("departureTime:", departureTime);
+  console.log("arrivalTime:", arrivalTime);
   return (
     <div className="relative w-full rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
       {/* Left accent strip */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 via-sky-300 to-blue-600 rounded-l-lg z-20" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-estrafe via-violet-estrafe-active/40 to-violet-estrafe rounded-l-lg z-20" />
 
       {/* Subtle wave background */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg
-          className="w-full h-full text-blue-500"
+          className="w-full h-full text-violet-estrafe/50"
           viewBox="0 0 1440 320"
           fill="none"
           preserveAspectRatio="none"
@@ -69,15 +76,15 @@ export default function CheckoutTicketSummary({
         {/* Times row */}
         <div className="flex items-center space-x-4">
           <div className="flex flex-col items-start">
-            <p>Madrid</p>
+            <p>{departureStation}</p>
             <span className="text-2xl font-bold text-gray-900">{departureTime}</span>
             <span className="text-xs text-gray-500">Departure</span>
           </div>
           <div className="text-lg">
-            <MoveRight className="h-5 w-5 text-gray-400 mt-2" />
+            <MoveRight className="h-5 w-5 text-gray-400 -mt-4" />
           </div>
           <div className="flex flex-col items-start">
-            <p>Seville</p>
+            <p>{arrivalStation}</p>
             <span className="text-2xl font-bold text-gray-900">{arrivalTime}</span>
             <span className="text-xs text-gray-500">Arrival</span>
           </div>

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Search } from "lucide-react"
-import { CommandDialog, CommandInput, CommandList, CommandItem } from "@/components/ui/command"
+import { CommandDialog, CommandList, CommandItem } from "@/components/ui/command"
 
 export function SearchCombobox() {
   const [open, setOpen] = React.useState(false)

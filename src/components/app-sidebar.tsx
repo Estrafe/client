@@ -3,13 +3,9 @@
 import * as React from "react";
 import {
   Building2,
-  Frame,
-  LineChart,
-  Map,
-  PieChart,
-  RailSymbol,
-  TrainFront,
   TrainFrontTunnelIcon,
+  TrainFront,
+  RailSymbol,
 } from "lucide-react";
 
 import { NavUser } from "@/components/nav-user";
@@ -19,9 +15,13 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
 
 // Sample data
 const data = {
@@ -37,69 +37,44 @@ const data = {
       plan: "Enterprise",
     },
   ],
-  // We only need the top-level items – no nested dropdown items.
   navMain: [
     {
       title: "Cities",
-      url: "#",
+      url: "/dashboard/city",
       icon: Building2,
       isActive: true,
     },
     {
       title: "Stations",
-      url: "#",
+      url: "/dashboard/stations",
       icon: TrainFrontTunnelIcon,
     },
     {
       title: "Trains",
-      url: "#",
+      url: "/dashboard/trains",
       icon: TrainFront,
-    },
-    {
-      title: "Services",
-      url: "#",
-      icon: LineChart,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
 
-// Simple navigation component rendering only top-level buttons.
-function NavMainSimple({ items }: { items: Array<{ title: string; url: string; icon?: React.ElementType; isActive?: boolean; }> }) {
+// Updated NavMain to match the style of NavProjects
+function NavMain({ items }: { items: Array<{ title: string; url: string; icon?: React.ElementType; isActive?: boolean; }> }) {
   return (
-      <div className="flex flex-col space-y-2">
-        {items.map((item) => (
-            <Button
-                key={item.title}
-                variant="ghost"
-                className={`w-full justify-start px-4 py-2 text-left ${
-                    item.isActive ? "border-l-4 border-violet-estrafe text-violet-estrafe" : "text-gray-700"
-                }`}
-                // You can add an onClick handler here if you want to navigate to the url.
-            >
-              {item.icon && (
-                  <item.icon className="w-5 h-5 mr-2" />
-              )}
-              {item.title}
-            </Button>
-        ))}
-      </div>
+      <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+        <SidebarGroupLabel>Contents</SidebarGroupLabel>
+        <SidebarMenu>
+          {items.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton asChild>
+                  <a href={item.url}>
+                    {React.createElement(item.icon)}
+                    <span>{item.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarGroup>
   );
 }
 
@@ -110,10 +85,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <TeamSwitcher teams={data.teams} />
         </SidebarHeader>
         <SidebarContent>
-          {/* Replace NavMain with our simple version */}
-          <NavMainSimple items={data.navMain} />
-          {/* Optionally, you can also remove projects if not needed */}
-          {/* <NavProjects projects={data.projects} /> */}
+          <NavMain items={data.navMain} />
         </SidebarContent>
         <SidebarFooter>
           <NavUser user={data.user} />

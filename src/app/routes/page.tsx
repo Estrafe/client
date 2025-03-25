@@ -144,7 +144,7 @@ export default function RoutesPage() {
                                             x1="400" y1="170"
                                             x2="320" y2="202"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-1" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-1" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-1")}
                                             onMouseLeave={handleSegmentLeave}
@@ -154,7 +154,7 @@ export default function RoutesPage() {
                                             x1="320" y1="202"
                                             x2="200" y2="280"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-1" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-1" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-1")}
                                             onMouseLeave={handleSegmentLeave}
@@ -164,7 +164,7 @@ export default function RoutesPage() {
                                             x1="200" y1="280"
                                             x2="350" y2="350"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-1" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-1" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-1")}
                                             onMouseLeave={handleSegmentLeave}
@@ -174,7 +174,7 @@ export default function RoutesPage() {
                                             x1="350" y1="350"
                                             x2="400" y2="380"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-1" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-1" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-1")}
                                             onMouseLeave={handleSegmentLeave}
@@ -184,7 +184,7 @@ export default function RoutesPage() {
                                             x1="400" y1="380"
                                             x2="550" y2="420"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-1" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-1" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-1")}
                                             onMouseLeave={handleSegmentLeave}
@@ -196,7 +196,7 @@ export default function RoutesPage() {
                                             x1="400" y1="170"
                                             x2="450" y2="260"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-2" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-2" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-2")}
                                             onMouseLeave={handleSegmentLeave}
@@ -206,7 +206,7 @@ export default function RoutesPage() {
                                             x1="450" y1="260"
                                             x2="550" y2="420"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-2" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-2" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-2")}
                                             onMouseLeave={handleSegmentLeave}
@@ -218,7 +218,7 @@ export default function RoutesPage() {
                                             x1="400" y1="120"
                                             x2="400" y2="170"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-3" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-3" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-3")}
                                             onMouseLeave={handleSegmentLeave}
@@ -228,7 +228,7 @@ export default function RoutesPage() {
                                             d="M400,170 Q300,240 200,280"
                                             strokeWidth="5"
                                             fill="none"
-                                            stroke={hoveredRoute === "route-3" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-3" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-3")}
                                             onMouseLeave={handleSegmentLeave}
@@ -238,7 +238,7 @@ export default function RoutesPage() {
                                             d="M200,280 C130,340 80,420 40,460"
                                             strokeWidth="5"
                                             fill="none"
-                                            stroke={hoveredRoute === "route-3" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-3" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-3")}
                                             onMouseLeave={handleSegmentLeave}
@@ -250,7 +250,7 @@ export default function RoutesPage() {
                                             x1="400" y1="170"
                                             x2="440" y2="150"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-4" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-4" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-4")}
                                             onMouseLeave={handleSegmentLeave}
@@ -260,7 +260,7 @@ export default function RoutesPage() {
                                             x1="440" y1="150"
                                             x2="500" y2="100"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-4" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-4" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-4")}
                                             onMouseLeave={handleSegmentLeave}
@@ -272,7 +272,7 @@ export default function RoutesPage() {
                                             x1="400" y1="380"
                                             x2="320" y2="500"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-5" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-5" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-5")}
                                             onMouseLeave={handleSegmentLeave}
@@ -282,7 +282,7 @@ export default function RoutesPage() {
                                             x1="560" y1="580"
                                             x2="550" y2="420"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-5" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-5" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-5")}
                                             onMouseLeave={handleSegmentLeave}
@@ -294,7 +294,7 @@ export default function RoutesPage() {
                                             d="M620,235 C600,240 540,250 450,260"
                                             strokeWidth="5"
                                             fill="none"
-                                            stroke={hoveredRoute === "route-6" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-6" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-6")}
                                             onMouseLeave={handleSegmentLeave}
@@ -304,7 +304,7 @@ export default function RoutesPage() {
                                             x1="400" y1="170"
                                             x2="450" y2="260"
                                             strokeWidth="5"
-                                            stroke={hoveredRoute === "route-6" ? "#890070" : "#ccc"}
+                                            stroke={hoveredRoute === "route-6" ? "#b91c1d" : "#ccc"}
                                             className="cursor-pointer"
                                             onMouseEnter={() => handleSegmentHover("route-6")}
                                             onMouseLeave={handleSegmentLeave}
@@ -329,7 +329,7 @@ export default function RoutesPage() {
                                             { name: "Liechtenstein", cx: 620, cy: 235 },
                                         ].map((station) => (
                                             <g key={station.name}>
-                                                <circle cx={station.cx} cy={station.cy} r="6" fill="#890070" />
+                                                <circle cx={station.cx} cy={station.cy} r="6" fill="#b91c1d" />
                                                 <text
                                                     x={station.cx}
                                                     y={station.cy - 10}
@@ -356,7 +356,7 @@ export default function RoutesPage() {
                                         className={cn(
                                             "border rounded-md p-4 shadow-sm transition cursor-pointer",
                                             isHovered
-                                                ? "bg-violet-50 border-violet-300"
+                                                ? "bg-violet-estrafe-hover/10 border-violet-estrafe/80"
                                                 : "bg-white border-gray-200"
                                         )}
                                         onMouseEnter={() => handleSegmentHover(route.id)}

@@ -1,0 +1,42 @@
+{
+  "customers": [
+    { "id": "1", "name": "Alice Johnson", "email": "alice@example.com", "phone": "123-456-7890" },
+    { "id": "2", "name": "Bob Smith", "email": "bob@example.com", "phone": "987-654-3210" },
+    { "id": "3", "name": "Charlie Brown", "email": "charlie@example.com", "phone": "555-123-4567" },
+    { "id": "4", "name": "David White", "email": "david@example.com", "phone": "444-222-1111" },
+    { "id": "5", "name": "Emma Wilson", "email": "emma@example.com", "phone": "333-777-8888" }
+  ],
+  "issues": [
+    { "id": "101", "description": "Payment not processed", "customerId": "1", "status": "Open" },
+    { "id": "102", "description": "Account locked out", "customerId": "2", "status": "Pending" },
+    { "id": "103", "description": "Incorrect billing details", "customerId": "3", "status": "Resolved" },
+    { "id": "104", "description": "Unauthorized transaction", "customerId": "4", "status": "Open" },
+    { "id": "105", "description": "Service not available", "customerId": "5", "status": "In Progress" }
+  ],
+  "payments": [
+    { "id": "201", "customerId": "1", "amount": "$100.00", "date": "2024-03-01" },
+    { "id": "202", "customerId": "2", "amount": "$250.00", "date": "2024-02-27" },
+    { "id": "203", "customerId": "3", "amount": "$75.50", "date": "2024-02-20" },
+    { "id": "204", "customerId": "4", "amount": "$320.00", "date": "2024-02-15" },
+    { "id": "205", "customerId": "5", "amount": "$50.00", "date": "2024-03-05" }
+  ],
+  "employees": [
+    { "id": "301", "name": "John Doe", "email": "john.doe@example.com", "position": "Manager", "photo": "/images/employees/john_doe.png" },
+    { "id": "302", "name": "Jane Smith", "email": "jane.smith@example.com", "position": "HR Specialist", "photo": "/images/employees/jane_smith.png" },
+    { "id": "303", "name": "Michael Brown", "email": "michael.brown@example.com", "position": "Software Engineer", "photo": "/images/employees/michael_brown.png" },
+    { "id": "304", "name": "Emily Davis", "email": "emily.davis@example.com", "position": "Marketing Coordinator", "photo": "/images/employees/emily_davis.png" },
+    { "id": "305", "name": "Robert Wilson", "email": "robert.wilson@example.com", "position": "Sales Representative", "photo": "/images/employees/robert_wilson.png" }
+  ],
+  "transactions": [
+    { "id": "1001", "customer": "Alice Johnson", "amount": "$1,200", "status": "Completed" },
+    { "id": "1002", "customer": "Bob Smith", "amount": "$3,500", "status": "Pending" },
+    { "id": "1003", "customer": "Charlie Brown", "amount": "$980", "status": "Failed" },
+    { "id": "1004", "customer": "Emma Wilson", "amount": "$2,150", "status": "Completed" },
+    { "id": "1005", "customer": "David White", "amount": "$4,320", "status": "Pending" },
+    { "id": "1006", "customer": "Sophia Martinez", "amount": "$890", "status": "Failed" },
+    { "id": "1007", "customer": "Liam Brown", "amount": "$2,700", "status": "Completed" },
+    { "id": "1008", "customer": "Olivia Clark", "amount": "$5,100", "status": "Completed" },
+    { "id": "1009", "customer": "Noah Hall", "amount": "$750", "status": "Pending" },
+    { "id": "1010", "customer": "Ava Scott", "amount": "$3,800", "status": "Completed" }
+  ]
+}

@@ -27,6 +27,7 @@ interface TicketCardProps {
     accessible?: boolean
     co2Compliant?: boolean
     animalsEnabledCoach: boolean
+    availableSeats: number
     /**
      * Callback to notify parent when a class is selected,
      * passing the chosen class and the *final* (base + surcharge) price
@@ -96,12 +97,12 @@ export default function TicketCard({
             )}
         >
             {/* Left accent strip */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-600 via-orange-300 to-orange-600 rounded-l-lg z-20" />
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-estrafe via-violet-estrafe-active/80 to-violet-estrafe rounded-l-lg z-20" />
 
             {/* Subtle wave background */}
             <div className="absolute inset-0 pointer-events-none opacity-10">
                 <svg
-                    className="w-full h-full text-orange-500"
+                    className="w-full h-full text-violet-estrafe"
                     viewBox="0 0 1440 320"
                     fill="none"
                     preserveAspectRatio="none"
@@ -202,7 +203,7 @@ export default function TicketCard({
                             <span className="text-sm font-semibold text-gray-600">
                                 {hoveredClass ? "" : "from"}
                             </span>
-                            <span className="text-2xl text-center font-bold mb-5">
+                            <span className="text-2xl text-center font-bold mb-5 truncate">
                                 CHF {displayedPrice}
                             </span>
                         </>
@@ -238,7 +239,7 @@ export default function TicketCard({
                             <Button
                                 variant="default"
                                 onClick={() => handleSelectTrain("Standard")}
-                                className="mt-auto bg-orange-500"
+                                className="mt-auto bg-violet-estrafe hover:bg-violet-estrafe-hover"
                             >
                                 Select Standard
                             </Button>
@@ -259,7 +260,7 @@ export default function TicketCard({
                             <Button
                                 variant="default"
                                 onClick={() => handleSelectTrain("First Class")}
-                                className="mt-auto bg-orange-500"
+                                className="mt-auto bg-violet-estrafe hover:bg-violet-estrafe-hover"
                             >
                                 Select Upper
                             </Button>
@@ -281,7 +282,7 @@ export default function TicketCard({
                             <Button
                                 variant="default"
                                 onClick={() => handleSelectTrain("Sleeper")}
-                                className="mt-auto bg-orange-500"
+                                className="mt-auto bg-violet-estrafe hover:bg-violet-estrafe-hover"
                             >
                                 Select Business
                             </Button>

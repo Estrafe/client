@@ -47,15 +47,15 @@ export default function StationAutocomplete({
 
     return (
         <div className={`relative w-full ${containerClassName}`}>
-            <label className="mb-1 text-sm font-medium text-gray-700 flex items-center gap-1">
-                <MapPin className="h-4 w-4 text-violet-estrafe" /> {label}
+            <label className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-1">
+                <MapPin className="h-4 w-4 text-violet-estrafe dark:text-red-200" /> {label}
             </label>
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                     <Input
                         value={displayValue}
                         placeholder={placeholder}
-                        className={`text-sm bg-white cursor-text transition-all ${inputClassName} ${highlightClassName}`}
+                        className={`text-sm bg-white dark:bg-slate-600 dark:text-white cursor-text transition-all ${inputClassName} ${highlightClassName} dark:border-gray-500`}
                         onFocus={() => setOpen(true)}
                         readOnly
                     />
@@ -70,11 +70,11 @@ export default function StationAutocomplete({
                                     onSelect={() => handleSelect(station.name, station.id)}
                                     className="flex items-center cursor-pointer"
                                 >
-                                    <MapPin className="h-4 w-4 text-violet-estrafe mr-2" />
-                                    <span className="font-medium">{station.name}</span>
+                                    <MapPin className="h-4 w-4 text-violet-estrafe dark:text-red-200 mr-2" />
+                                    <span className="font-medium dark:text-white">{station.name}</span>
                                     <span className="text-sm text-gray-500 ml-auto">
-                    {station.city ? station.city.name : "No city"}
-                  </span>
+                                        {station.city ? station.city.name : "No city"}
+                                    </span>
                                 </CommandItem>
                             ))}
                         </CommandGroup>

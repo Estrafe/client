@@ -29,8 +29,8 @@ export function DatePicker({ selectedDate, setSelectedDate, label, minDate }: Da
                     <Button
                         variant={"outline"}
                         className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !selectedDate && "text-muted-foreground"
+                            "w-full justify-start text-left font-normal bg-white dark:bg-gray-600 dark:text-white dark:border-gray-500",
+                            !selectedDate && "text-muted-foreground bg-white dark:bg-gray-600 dark:text-gray-50 dark:border-gray-500",
                         )}
                     >
                         {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
